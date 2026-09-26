@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# uv / venvs
+.venv/
+venv/
+# .python-version SÍ se commitea a propósito (fija Python 3.12 — DECISIÓN-1)
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.ruff_cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Flet build artifacts (apps/client-node, apps/admin-panel)
+build/
+storage/
+*.pyc
+
+# Playwright (apps/client-node)
+.cache/
+test-results/
+playwright-report/
+
+# Alembic local artifacts
+*.sqlite3
+
+# Colima / local infra data (not part of the repo contract)
+infra/postgres-init/.pgdata/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp

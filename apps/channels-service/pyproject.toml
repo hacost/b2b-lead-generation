@@ -1,0 +1,29 @@
+[project]
+name = "channels-service"
+version = "0.1.0"
+description = "Canales de entrada conversacional (Telegram hoy, WhatsApp después) vía ChannelAdapter"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pydantic>=2.9",
+    "shared-contracts",
+]
+# NOTA (Regla 2 de CLAUDE.md — sin improvisación): el framework de bot async
+# para Telegram/WhatsApp NO está decidido todavía (ver CLAUDE.md, sección
+# "Framework"). Se decide en la primera iteración de este app. No se agrega
+# aquí una dependencia de bot framework hasta que exista esa decisión.
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+]
+
+[tool.uv.sources]
+shared-contracts = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/channels_service"]

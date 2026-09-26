@@ -1,0 +1,22 @@
+target-version = "py312"
+line-length = 100
+extend-exclude = [
+    "specs/iterations",
+    "reports",
+    # Prototipo pre-monorepo (ver context-proposal.md, DECISIÓN-1). Vive en la raíz
+    # porque todavía no fue migrado a apps/client-node como Scraper Engine — eso
+    # ocurre en la iteración que implemente el Client Node, no en Fase 0. No se
+    # edita ni se borra aquí (no es parte del esqueleto de bootstrap).
+    "google_maps_scraper.py",
+]
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "ASYNC"]
+ignore = []
+
+[lint.per-file-ignores]
+"**/tests/**" = ["S101"]
+
+[format]
+quote-style = "double"
+indent-style = "space"

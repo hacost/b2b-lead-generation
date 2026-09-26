@@ -1,0 +1,35 @@
+[project]
+name = "b2b-lead-generation"
+version = "0.1.0"
+description = "Distributed scraping system with local execution control — monorepo workspace root"
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["apps/*", "packages/*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=6.0",
+    "ruff>=0.8",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "--import-mode=importlib --cov=api --cov=client_node --cov=admin_panel --cov=channels_service --cov=shared_contracts"
+testpaths = [
+    "apps/api/tests",
+    "apps/client-node/tests",
+    "apps/admin-panel/tests",
+    "apps/channels-service/tests",
+    "packages/shared-contracts/tests",
+]
+
+[tool.coverage.run]
+branch = true
+

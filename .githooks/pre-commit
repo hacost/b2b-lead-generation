@@ -1,0 +1,8 @@
+#!/bin/sh
+# Instalar con: git config core.hooksPath .githooks
+# Bloquea localmente cualquier commit que modifique o borre un test existente
+# (Regla 1 de CLAUDE.md). Compara el stage contra HEAD.
+set -e
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+"$REPO_ROOT/scripts/check_immutable_tests.sh" --cached
